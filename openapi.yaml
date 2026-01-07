@@ -1,0 +1,1021 @@
+openapi: 3.0.3
+
+info:
+  title: Flask CRUD
+  version: 1.0.0
+
+tags:
+  - name: AttackTypes
+    description: Attack type endpoints
+  - name: CyberThreats
+    description: Global cyber threats endpoints
+  - name: DefenseMechanisms
+    description: Defense mechanism endpoints
+  - name: SecurityVulnerabilities
+    description: Security vulnerability endpoints
+  - name: TargetIndustries
+    description: Target industry endpoints
+
+paths:
+
+  /attack_types:
+    post:
+      summary: Create an attack type
+      tags:
+        - AttackTypes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - type
+              properties:
+                type:
+                  type: string
+                  example: Phishing
+      responses:
+        "201":
+          description: Attack type created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AttackType"
+        "400":
+          description: Invalid type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    get:
+      summary: List all attack types
+      tags:
+        - AttackTypes
+      responses:
+        "200":
+          description: List of attack types
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AttackType"
+
+  /attack_types/{id}:
+    get:
+      summary: Get an attack type by ID
+      tags:
+        - AttackTypes
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "200":
+          description: Attack type found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AttackType"
+        "404":
+          description: Attack type not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    put:
+      summary: Update an attack type
+      tags:
+        - AttackTypes
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - type
+              properties:
+                type:
+                  type: string
+                  example: Ransomware
+      responses:
+        "200":
+          description: Attack type updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AttackType"
+        "400":
+          description: Invalid type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Attack type not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    delete:
+      summary: Delete an attack type
+      tags:
+        - AttackTypes
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "204":
+          description: Attack type deleted
+        "404":
+          description: Attack type not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "409":
+          description: Attack type cannot be deleted due to foreign key constraint
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /cyber_threats:
+    post:
+      summary: Create a cyber threat
+      tags:
+        - CyberThreats
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - country
+                - year
+                - attack_type
+                - target_industry
+                - financial_loss
+                - affected_users
+                - attack_source
+                - security_vulnerability
+                - defense_mechanism
+                - resolution_time
+              properties:
+                country:
+                  type: string
+                  example: Brazil
+                year:
+                  type: integer
+                  example: 2023
+                attack_type:
+                  type: integer
+                  example: 1
+                target_industry:
+                  type: integer
+                  example: 2
+                financial_loss:
+                  type: number
+                  format: float
+                  example: 12.5
+                affected_users:
+                  type: integer
+                  example: 15000
+                attack_source:
+                  type: integer
+                  example: 3
+                security_vulnerability:
+                  type: integer
+                  example: 4
+                defense_mechanism:
+                  type: integer
+                  example: 1
+                resolution_time:
+                  type: integer
+                  example: 72
+      responses:
+        "201":
+          description: Cyber threat created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CyberThreat"
+        "400":
+          description: Invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    get:
+      summary: List all cyber threats
+      tags:
+        - CyberThreats
+      responses:
+        "200":
+          description: List of cyber threats
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CyberThreat"
+
+  /cyber_threats/{id}:
+    get:
+      summary: Get a cyber threat by ID
+      tags:
+        - CyberThreats
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "200":
+          description: Cyber threat found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CyberThreat"
+        "404":
+          description: Cyber threat not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    put:
+      summary: Update a cyber threat
+      tags:
+        - CyberThreats
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                country:
+                  type: string
+                  example: Brazil
+                year:
+                  type: integer
+                  example: 2024
+                attack_type:
+                  type: integer
+                  example: 1
+                target_industry:
+                  type: integer
+                  example: 2
+                financial_loss:
+                  type: number
+                  format: float
+                  example: 8.3
+                affected_users:
+                  type: integer
+                  example: 4200
+                attack_source:
+                  type: integer
+                  example: 3
+                security_vulnerability:
+                  type: integer
+                  example: 4
+                defense_mechanism:
+                  type: integer
+                  example: 2
+                resolution_time:
+                  type: integer
+                  example: 48
+      responses:
+        "200":
+          description: Cyber threat updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CyberThreat"
+        "404":
+          description: Cyber threat not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    delete:
+      summary: Delete a cyber threat
+      tags:
+        - CyberThreats
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "204":
+          description: Cyber threat deleted
+        "404":
+          description: Cyber threat not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /cyber_threats/attack_sources:
+    get:
+      summary: Percentage of attacks by source
+      tags:
+        - CyberThreats
+      responses:
+        "200":
+          description: Percentage of attacks per source
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Id:
+                      type: integer
+                      example: 1
+                    Source:
+                      type: string
+                      example: "External"
+                    Total:
+                      type: integer
+                      example: 42
+                    Percentage:
+                      type: number
+                      format: float
+                      example: 35.5
+
+  /cyber_threats/attack_types:
+    get:
+      summary: Percentage of attacks by type
+      tags:
+        - CyberThreats
+      responses:
+        "200":
+          description: Percentage of attacks per type
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Id:
+                      type: integer
+                      example: 2
+                    Type:
+                      type: string
+                      example: "Phishing"
+                    Total:
+                      type: integer
+                      example: 58
+                    Percentage:
+                      type: number
+                      format: float
+                      example: 48.2
+
+  /cyber_threats/defense_mechanism:
+    get:
+      summary: Percentage of attacks by defense mechanism
+      tags:
+        - CyberThreats
+      responses:
+        "200":
+          description: Percentage of attacks per defense mechanism
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Id:
+                      type: integer
+                      example: 3
+                    Defense:
+                      type: string
+                      example: "Firewall"
+                    Total:
+                      type: integer
+                      example: 27
+                    Percentage:
+                      type: number
+                      format: float
+                      example: 22.1
+
+  /cyber_threats/security_vulnerability:
+    get:
+      summary: Percentage of attacks by security vulnerability
+      tags:
+        - CyberThreats
+      responses:
+        "200":
+          description: Percentage of attacks per security vulnerability
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Id:
+                      type: integer
+                      example: 3
+                    Vulnerability:
+                      type: string
+                      example: "Social Engineering"
+                    Total:
+                      type: integer
+                      example: 27
+                    Percentage:
+                      type: number
+                      format: float
+                      example: 22.1
+
+  /cyber_threats/target_industry:
+    get:
+      summary: Percentage of attacks by target industry
+      tags:
+        - CyberThreats
+      responses:
+        "200":
+          description: Percentage of attacks per target industry
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Id:
+                      type: integer
+                      example: 3
+                    Industry:
+                      type: string
+                      example: "Education"
+                    Total:
+                      type: integer
+                      example: 27
+                    Percentage:
+                      type: number
+                      format: float
+                      example: 22.1
+
+  /defense_mechanisms:
+    post:
+      summary: Create a defense mechanism
+      tags:
+        - DefenseMechanisms
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - mechanism
+              properties:
+                mechanism:
+                  type: string
+                  example: Firewall
+      responses:
+        "201":
+          description: Defense mechanism created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DefenseMechanism"
+        "400":
+          description: Invalid mechanism
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    get:
+      summary: List all defense mechanisms
+      tags:
+        - DefenseMechanisms
+      responses:
+        "200":
+          description: List of defense mechanisms
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/DefenseMechanism"
+
+  /defense_mechanisms/{id}:
+    get:
+      summary: Get a defense mechanism by ID
+      tags:
+        - DefenseMechanisms
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "200":
+          description: Defense mechanism found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DefenseMechanism"
+        "404":
+          description: Defense mechanism not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    put:
+      summary: Update a defense mechanism
+      tags:
+        - DefenseMechanisms
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - mechanism
+              properties:
+                mechanism:
+                  type: string
+                  example: IDS
+      responses:
+        "200":
+          description: Defense mechanism updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DefenseMechanism"
+        "400":
+          description: Invalid mechanism
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Defense mechanism not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    delete:
+      summary: Delete a defense mechanism
+      tags:
+        - DefenseMechanisms
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "204":
+          description: Defense mechanism deleted
+        "404":
+          description: Defense mechanism not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "409":
+          description: Defense mechanism cannot be deleted due to foreign key constraint
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /security_vulnerabilities:
+    post:
+      summary: Create a security vulnerability
+      tags:
+        - SecurityVulnerabilities
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - vulnerability
+              properties:
+                vulnerability:
+                  type: string
+                  example: SQL Injection
+      responses:
+        "201":
+          description: Security vulnerability created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SecurityVulnerability"
+        "400":
+          description: Invalid vulnerability
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    get:
+      summary: List all security vulnerabilities
+      tags:
+        - SecurityVulnerabilities
+      responses:
+        "200":
+          description: List of security vulnerabilities
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/SecurityVulnerability"
+
+  /security_vulnerabilities/{id}:
+    get:
+      summary: Get a security vulnerability by ID
+      tags:
+        - SecurityVulnerabilities
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "200":
+          description: Security vulnerability found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SecurityVulnerability"
+        "404":
+          description: Security vulnerability not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    put:
+      summary: Update a security vulnerability
+      tags:
+        - SecurityVulnerabilities
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - vulnerability
+              properties:
+                vulnerability:
+                  type: string
+                  example: Cross-Site Scripting (XSS)
+      responses:
+        "200":
+          description: Security vulnerability updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SecurityVulnerability"
+        "400":
+          description: Invalid vulnerability
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Security vulnerability not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    delete:
+      summary: Delete a security vulnerability
+      tags:
+        - SecurityVulnerabilities
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "204":
+          description: Security vulnerability deleted
+        "404":
+          description: Security vulnerability not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "409":
+          description: Security vulnerability cannot be deleted due to foreign key constraint
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /target_industries:
+    post:
+      summary: Create a target industry
+      tags:
+        - TargetIndustries
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - industry
+              properties:
+                industry:
+                  type: string
+                  example: Finance
+      responses:
+        "201":
+          description: Target industry created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TargetIndustry"
+        "400":
+          description: Invalid industry
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    get:
+      summary: List all target industries
+      tags:
+        - TargetIndustries
+      responses:
+        "200":
+          description: List of target industries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TargetIndustry"
+
+  /target_industries/{id}:
+    get:
+      summary: Get a target industry by ID
+      tags:
+        - TargetIndustries
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "200":
+          description: Target industry found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TargetIndustry"
+        "404":
+          description: Target industry not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    put:
+      summary: Update a target industry
+      tags:
+        - TargetIndustries
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - industry
+              properties:
+                industry:
+                  type: string
+                  example: Healthcare
+      responses:
+        "200":
+          description: Target industry updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TargetIndustry"
+        "400":
+          description: Invalid industry
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Target industry not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    delete:
+      summary: Delete a target industry
+      tags:
+        - TargetIndustries
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "204":
+          description: Target industry deleted
+        "404":
+          description: Target industry not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "409":
+          description: Target industry cannot be deleted due to foreign key constraint
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+components:
+  schemas:
+    AttackType:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        type:
+          type: string
+          example: Phishing
+
+    CyberThreat:
+      type: object
+      properties:
+        Id:
+          type: integer
+        Country:
+          type: string
+        Year:
+          type: integer
+        Financial Loss (in Million $):
+          type: number
+        Number of Affected Users:
+          type: integer
+        Incident Resolution Time (in Hours):
+          type: integer
+        Attack Type:
+          type: object
+          properties:
+            Id:
+              type: integer
+            Type:
+              type: string
+        Target Industry:
+          type: object
+          properties:
+            Id:
+              type: integer
+            Industry:
+              type: string
+        Attack Source:
+          type: object
+          properties:
+            Id:
+              type: integer
+            Source:
+              type: string
+        Security Vulnerability Type:
+          type: object
+          properties:
+            Id:
+              type: integer
+            Vulnerability:
+              type: string
+        Defense Mechanism Used:
+          type: object
+          properties:
+            Id:
+              type: integer
+            Mechanism:
+              type: string
+
+    DefenseMechanism:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        mechanism:
+          type: string
+          example: Firewall
+
+    SecurityVulnerability:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        vulnerability:
+          type: string
+          example: SQL Injection
+
+    TargetIndustry:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        industry:
+          type: string
+          example: Finance
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Not found

@@ -1,0 +1,823 @@
+{
+	"info": {
+		"_postman_id": "a7c189ab-ee30-4501-ae0b-13a8940cc9c9",
+		"name": "Flask_crud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47229930",
+		"_collection_link": "https://kaua-klassmann-2310111.postman.co/workspace/543cd7a0-b6c1-4021-86ab-b222b730bc96/collection/47229930-a7c189ab-ee30-4501-ae0b-13a8940cc9c9?action=share&source=collection_link&creator=47229930"
+	},
+	"item": [
+		{
+			"name": "Attack source",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/attack_sources",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attack_sources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"source\": \"a\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/attack_sources",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attack_sources"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/attack_sources/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attack_sources",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/attack_sources/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attack_sources",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"source\": \"Teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/attack_sources/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attack_sources",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attack type",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/attack_types",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attack_types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/attack_types",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attack_types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/attack_types/8",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attack_types",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/attack_types/8",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attack_types",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"Teste2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/attack_types/8",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"attack_types",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Defense mechanism",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/defense_mechanisms",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"defense_mechanisms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mechanism\": \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/defense_mechanisms",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"defense_mechanisms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/defense_mechanisms/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"defense_mechanisms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/defense_mechanisms/9",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"defense_mechanisms",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mechanism\": \"Teste2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/defense_mechanisms/9",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"defense_mechanisms",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Target industry",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/target_industries",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"target_industries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"industry\": \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/target_industries",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"target_industries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/target_industries/7",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"target_industries",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/target_industries/8",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"target_industries",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"industry\": \"Teste2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/target_industries/8",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"target_industries",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Security vulnerability",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/security_vulnerabilities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"security_vulnerabilities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vulnerability\": \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/security_vulnerabilities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"security_vulnerabilities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/security_vulnerabilities/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"security_vulnerabilities",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/security_vulnerabilities/8",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"security_vulnerabilities",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vulnerability\": \"Teste2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/security_vulnerabilities/8",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"security_vulnerabilities",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Global cyber threat",
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cyber_threats",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cyber_threats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Porcentagem attack type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cyber_threats/attack_types",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cyber_threats",
+								"attack_types"
+							]
+						}
+					},
+					"response": []
+				},
+
+				{
+					"name": "Porcentagem defense mechanism",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cyber_threats/defense_mechanism",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cyber_threats",
+								"defense_mechanism"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Porcentagem security vulnerability",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cyber_threats/security_vulnerability",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cyber_threats",
+								"security_vulnerability"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Porcentagem target industry",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cyber_threats/target_industry",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cyber_threats",
+								"target_industry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"country\": \"Brazil\",\n    \"year\": 2025,\n    \"attack_type\": 1,\n    \"target_industry\": 1,\n    \"financial_loss\": 100,\n    \"affected_users\": 57854,\n    \"attack_source\": 1,\n    \"security_vulnerability\": 1,\n    \"defense_mechanism\": 1,\n    \"resolution_time\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cyber_threats",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cyber_threats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/cyber_threats/3003",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cyber_threats",
+								"3003"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/cyber_threats/3002",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cyber_threats",
+								"3002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"security_vulnerability\": 2,\n    \"country\": \"China\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cyber_threats/3003",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cyber_threats",
+								"3003"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:5000/",
+			"type": "default"
+		}
+	]
+}
