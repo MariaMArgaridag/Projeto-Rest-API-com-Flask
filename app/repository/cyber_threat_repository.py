@@ -30,7 +30,10 @@ class CyberThreatRepository:
                 "Defense Mechanism Used": defense_mechanism,
                 "Incident Resolution Time (in Hours)": resolution_time
             }
-        except:
+        except Exception as e:
+            print(f"[ERRO_DB_CREATE] {type(e).__name__}: {str(e)}")
+            import traceback
+            traceback.print_exc()
             return None
 
     def list(self):

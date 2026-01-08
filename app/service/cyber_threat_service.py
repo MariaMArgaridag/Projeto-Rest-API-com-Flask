@@ -32,20 +32,20 @@ class CyberThreatService:
 
         country = country if country is not None else current["Country"]
         year = year if year is not None else current["Year"]
-        attack_type = attack_type if attack_type is not None else current["Attack Type"]["id"]
-        target_industry = target_industry if target_industry is not None else current["Target Industry"]["id"]
+        attack_type = attack_type if attack_type is not None else current["Attack Type"]["Id"]
+        target_industry = target_industry if target_industry is not None else current["Target Industry"]["Id"]
         financial_loss = financial_loss if financial_loss is not None else current["Financial Loss (in Million $)"]
         affected_users = affected_users if affected_users is not None else current["Number of Affected Users"]
-        attack_source = attack_source if attack_source is not None else current["Attack Source"]["id"]
+        attack_source = attack_source if attack_source is not None else current["Attack Source"]["Id"]
         security_vulnerability = (
             security_vulnerability
             if security_vulnerability is not None
-            else current["Security Vulnerability Type"]["id"]
+            else current["Security Vulnerability Type"]["Id"]
         )
         defense_mechanism = (
             defense_mechanism
             if defense_mechanism is not None
-            else current["Defense Mechanism Used"]["id"]
+            else current["Defense Mechanism Used"]["Id"]
         )
         resolution_time = (
             resolution_time
