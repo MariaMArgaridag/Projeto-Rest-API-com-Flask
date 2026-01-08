@@ -40,7 +40,7 @@ def get_info(id):
 
 def create_info():
     data = {
-        "country": "USA",
+        "country": "Uzbequistão",
         "year": 2023,
         "attack_type": 2,
         "target_industry": 2,
@@ -79,4 +79,4 @@ if __name__ == "__main__":
     get_info(2)
     create_info()
     update_info(2)
-    delete_info(140)
+    delete_info(12)
