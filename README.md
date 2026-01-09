@@ -78,6 +78,18 @@ ou
 
 python -m app.main
 ```
+Pasta app, onde estão os ficheiro das camadas do seguinte modo:
+Camada 1: Controller - Apresentação (rotas- blueprint)
+Camada 2: Service - Lógica (operações lógicas, CRUD)
+	 Liga Camada 1 -> Camada 2 (service) -> Camada 3 (repository)
+Camada 3: Repository - Persistência, ligação com a base dados (mysql)
+
+Ficheiro database, ligação da base com as variaveis 
+.env dados de acesso à base de dados
+Ficheiro utils cria os ID public, na Camada 1
+	
+
+
 
 A API ficará disponível em:
 
@@ -124,7 +136,7 @@ Documentação:
 
 Através dos testes de carga, verificamos que é uma carga sequencial
 	-velocidade da API 
-	-O tempo aumenta quando se faz várias iterações (ex: vai depender do número de pedidos
+	-O tempo aumenta quando se faz várias iterações (ex: vai depender do número de pedidos)
 
 Neste caso se os pedidos falharam poderemos ter erros como: 400, 404 e 500.
 Que poderá resultar em validações mal feitas e erros no backend, quando existem muitas chamadas.

@@ -13,7 +13,7 @@ class Database:
             #em vez de criar uma conexao direta, cria um pool de conexoes
             cls._instance.pool = MySQLConnectionPool(
                 pool_name="mypool",
-                pool_size=int(os.getenv("DB_POOL_SIZE", "5")),
+                pool_size=int(os.getenv("DB_POOL_SIZE", "10")),
                 host=os.getenv("DB_HOST"),
                 user=os.getenv("DB_USERNAME"),
                 password=os.getenv("DB_PASSWORD"),

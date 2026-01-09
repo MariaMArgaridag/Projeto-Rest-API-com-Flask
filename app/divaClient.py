@@ -56,7 +56,7 @@ def create_info():
     print("POST:", response.status_code)
     print(response.json())
 
-    # Opcional: disparar webhook após criação
+    # Opcional: disparar webhook apos criacao
     trigger_webhook(WEBHOOK_URL, data)
 
 def update_info(id):
@@ -74,9 +74,56 @@ def delete_info(id):
 
 # ======================= MAIN ===============================
 
+def menu():
+    """Menu interativo"""
+    while True:
+        print("\n=== Cliente DIVA - Gestao de Incidentes ===")
+        print("1. Listar todos os incidentes")
+        print("2. Obter um incidente por ID")
+        print("3. Criar novo incidente")
+        print("4. Atualizar incidente")
+        print("5. Apagar incidente")
+        print("0. Sair")
+        
+        opcao = input("\nEscolha uma opcao: ").strip()
+        
+        if opcao == "0":
+            print("A sair...")
+            break
+        elif opcao == "1":
+            get_infos()
+        elif opcao == "2":
+            incident_id = input("Digite o ID do incidente: ").strip()
+            try:
+                incident_id_int = int(incident_id)
+            except ValueError:
+                print("ID invalido")
+                continue
+            response = requests.get(f"{BASE_URL}/{incident_id_int}")
+            print("GET one:", response.status_code)
+            try:
+                print(response.json())
+            except ValueError:
+                if response.text:
+                    print(response.text)
+                else:
+                    print("Resposta vazia.")
+        elif opcao == "3":
+            create_info()
+        elif opcao == "4":
+            incident_id = input("Digite o ID do incidente a atualizar: ").strip()
+            try:
+                update_info(int(incident_id))
+            except ValueError:
+                print("ID invalido")
+        elif opcao == "5":
+            incident_id = input("Digite o ID do incidente a apagar: ").strip()
+            try:
+                delete_info(int(incident_id))
+            except ValueError:
+                print("ID invalido")
+        else:
+            print("Opcao invalida!")
+
 if __name__ == "__main__":
-    get_infos()
-    get_info(2)
-    create_info()
-    update_info(2)
-    delete_info(140)
+    menu()

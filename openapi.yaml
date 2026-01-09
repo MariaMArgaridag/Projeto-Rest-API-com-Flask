@@ -72,9 +72,10 @@ paths:
         - name: id
           in: path
           required: true
+          description: Numeric id or public_id hash
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "1"
       responses:
         "200":
           description: Attack type found
@@ -140,9 +141,10 @@ paths:
         - name: id
           in: path
           required: true
+          description: Numeric id or public_id hash
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "1"
       responses:
         "204":
           description: Attack type deleted
@@ -250,9 +252,10 @@ paths:
         - name: id
           in: path
           required: true
+          description: Numeric id or public_id hash
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "1"
       responses:
         "200":
           description: Cyber threat found
@@ -352,35 +355,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
 
-  /cyber_threats/attack_sources:
-    get:
-      summary: Percentage of attacks by source
-      tags:
-        - CyberThreats
-      responses:
-        "200":
-          description: Percentage of attacks per source
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    Id:
-                      type: integer
-                      example: 1
-                    Source:
-                      type: string
-                      example: "External"
-                    Total:
-                      type: integer
-                      example: 42
-                    Percentage:
-                      type: number
-                      format: float
-                      example: 35.5
-
   /cyber_threats/attack_types:
     get:
       summary: Percentage of attacks by type
@@ -396,9 +370,9 @@ paths:
                 items:
                   type: object
                   properties:
-                    Id:
-                      type: integer
-                      example: 2
+                    public_id:
+                      type: string
+                      example: "a1b2c3d4"
                     Type:
                       type: string
                       example: "Phishing"
@@ -425,9 +399,9 @@ paths:
                 items:
                   type: object
                   properties:
-                    Id:
-                      type: integer
-                      example: 3
+                    public_id:
+                      type: string
+                      example: "a1b2c3d4"
                     Defense:
                       type: string
                       example: "Firewall"
@@ -454,9 +428,9 @@ paths:
                 items:
                   type: object
                   properties:
-                    Id:
-                      type: integer
-                      example: 3
+                    public_id:
+                      type: string
+                      example: "a1b2c3d4"
                     Vulnerability:
                       type: string
                       example: "Social Engineering"
@@ -483,9 +457,9 @@ paths:
                 items:
                   type: object
                   properties:
-                    Id:
-                      type: integer
-                      example: 3
+                    public_id:
+                      type: string
+                      example: "a1b2c3d4"
                     Industry:
                       type: string
                       example: "Education"
@@ -551,9 +525,10 @@ paths:
         - name: id
           in: path
           required: true
+          description: Numeric id or public_id hash
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "1"
       responses:
         "200":
           description: Defense mechanism found
@@ -692,9 +667,10 @@ paths:
         - name: id
           in: path
           required: true
+          description: Numeric id or public_id hash
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "1"
       responses:
         "200":
           description: Security vulnerability found
@@ -833,9 +809,10 @@ paths:
         - name: id
           in: path
           required: true
+          description: Numeric id or public_id hash
           schema:
-            type: integer
-            example: 1
+            type: string
+            example: "1"
       responses:
         "200":
           description: Target industry found
@@ -925,9 +902,9 @@ components:
     AttackType:
       type: object
       properties:
-        id:
-          type: integer
-          example: 1
+        public_id:
+          type: string
+          example: "a1b2c3d4"
         type:
           type: string
           example: Phishing
@@ -935,8 +912,9 @@ components:
     CyberThreat:
       type: object
       properties:
-        Id:
-          type: integer
+        public_id:
+          type: string
+          example: "a1b2c3d4"
         Country:
           type: string
         Year:
@@ -950,45 +928,35 @@ components:
         Attack Type:
           type: object
           properties:
-            Id:
-              type: integer
             Type:
               type: string
         Target Industry:
           type: object
           properties:
-            Id:
-              type: integer
             Industry:
               type: string
         Attack Source:
           type: object
           properties:
-            Id:
-              type: integer
             Source:
               type: string
         Security Vulnerability Type:
           type: object
           properties:
-            Id:
-              type: integer
             Vulnerability:
               type: string
         Defense Mechanism Used:
           type: object
           properties:
-            Id:
-              type: integer
             Mechanism:
               type: string
 
     DefenseMechanism:
       type: object
       properties:
-        id:
-          type: integer
-          example: 1
+        public_id:
+          type: string
+          example: "a1b2c3d4"
         mechanism:
           type: string
           example: Firewall
@@ -996,9 +964,9 @@ components:
     SecurityVulnerability:
       type: object
       properties:
-        id:
-          type: integer
-          example: 1
+        public_id:
+          type: string
+          example: "a1b2c3d4"
         vulnerability:
           type: string
           example: SQL Injection
@@ -1006,9 +974,9 @@ components:
     TargetIndustry:
       type: object
       properties:
-        id:
-          type: integer
-          example: 1
+        public_id:
+          type: string
+          example: "a1b2c3d4"
         industry:
           type: string
           example: Finance
